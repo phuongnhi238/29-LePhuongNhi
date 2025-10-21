@@ -22,3 +22,18 @@ def print_student_list():
         ns  = sv.get("nam_sinh")
         dc  = sv.get("dia_chi")
         print(f" - Ten: {ten}, Nam sinh: {ns}, Dia chi: {dc}")
+def search_student(search_name):
+    print("--- KET QUA TIM KIEM ---")
+    found = []
+    for sv in student_list:
+        name = sv.get("ho_ten")
+        if search_name.lower() in name.lower():
+            ns = sv.get("nam_sinh")
+            dc = sv.get("dia_chi")
+            found.append((name, ns, dc))
+
+    if not found:
+        print("Khong tim thay sinh vien nao.")
+    else:
+        for name, ns, dc in found:
+            print(f" - Ten: {name}, Nam sinh: {ns}, Dia chi: {dc}")
